@@ -6,22 +6,12 @@ int flag, p, q, temp;
 
 void bogosort(int arr[], int n)
 {
-
     flag = 0;
-    /*printf("\nArray:")
-    for (int i = 0; i < n; i++)
-    {
-        printf("%d\t", arr[i]);
-    }
-    */
-    // logic:
     p = rand() % n;
     do
     {
         q = rand() % n;
     } while (p == q);
-    // printf("\np:%d", p);
-    // printf("\nq:%d", q);
     temp = arr[p];
     arr[p] = arr[q];
     arr[q] = temp;
@@ -29,7 +19,6 @@ void bogosort(int arr[], int n)
     {
         printf("%d\t", arr[i]);
     }
-    // check if sorted
     for (int i = 0; i < n - 1; i++)
     {
         if (arr[i] > arr[i + 1])
@@ -56,6 +45,7 @@ void bogosort(int arr[], int n)
     }
     return;
 }
+
 void stalinsort(int arr[], int arr2[], int n)
 {
     p = 0;
@@ -80,6 +70,7 @@ void stalinsort(int arr[], int arr2[], int n)
         printf("%d\t", arr2[i]);
     }
 }
+
 void thanossort(int arr[], int arr2[], int n)
 {
     p = 0;
@@ -88,10 +79,64 @@ void thanossort(int arr[], int arr2[], int n)
         arr2[p] = arr[i];
         p++;
     }
-    printf("\n");
+    if (p == 1)
+    {
+        printf("\nSorted array(single element): %d", arr[p]);
+        return;
+    }
+
+    /* printf("\narr2:\n");
+     for (int i = 0; i < p; i++)
+     {
+         printf("%d\t", arr2[i]);
+     }*/
+
+    // printf("\np: %d", p);
+
     for (int i = 0; i < p; i++)
     {
-        printf("%d\t", arr2[i]);
+        arr[i] = arr2[i];
+    }
+    for (q = p; q < n; q++)
+    {
+        arr[q] = 0;
+    }
+
+    /*printf("\narr1:\n");
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d\t", arr[i]);
+    }*/
+
+    for (int i = 0; i < p - 1; i++)
+    {
+        if (arr[i] > arr[i + 1])
+        {
+            flag = 1;
+            break;
+        }
+        else
+        {
+            flag = 0;
+        }
+    }
+    if (flag == 0)
+    {
+        printf("\nSorted array,here you go: \n");
+        for (int i = 0; i < p; i++)
+        {
+            printf("%d\t", arr[i]);
+        }
+    }
+    else
+    {
+        printf("\n");
+        for (int i = 0; i < p; i++)
+        {
+            printf("%d\t", arr[i]);
+        }
+        thanossort(arr, arr2, p);
+        // printf("\nrecursion");
     }
 }
 
@@ -145,6 +190,11 @@ void main()
         for (int i = 0; i < n; i++)
         {
             arr2[i] = 0;
+        }
+        // printf("\n");
+        for (int i = 0; i < n; i++)
+        {
+            printf("%d\t", arr[i]);
         }
         thanossort(arr, arr2, n);
         break;
