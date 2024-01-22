@@ -80,6 +80,21 @@ void stalinsort(int arr[], int arr2[], int n)
         printf("%d\t", arr2[i]);
     }
 }
+void thanossort(int arr[], int arr2[], int n)
+{
+    p = 0;
+    for (int i = 0; i < n; i = i + 2)
+    {
+        arr2[p] = arr[i];
+        p++;
+    }
+    printf("\n");
+    for (int i = 0; i < p; i++)
+    {
+        printf("%d\t", arr2[i]);
+    }
+}
+
 void main()
 {
     int n, ch;
@@ -109,12 +124,12 @@ void main()
         printf("\nAlready giving a sorted array? Nop bad game :(");
         return;
     }
-    printf("\nWhich sorting u wanna do?\n1. Bogo Sort\n2. Stalin sort \n : ");
+    printf("\nWhich sorting u wanna do?\n1. Bogo Sort\n2. Stalin sort \n3. Thanos sort\n : ");
     scanf("%d", &ch);
     switch (ch)
     {
     case 1:
-        printf("\nBogosort hehe\n");
+        printf("\nBogo sort hehe\n");
         bogosort(arr, n);
         break;
     case 2:
@@ -124,6 +139,14 @@ void main()
             arr2[i] = 0;
         }
         stalinsort(arr, arr2, n);
+        break;
+    case 3:
+        printf("Thanos sort (snaps!)");
+        for (int i = 0; i < n; i++)
+        {
+            arr2[i] = 0;
+        }
+        thanossort(arr, arr2, n);
         break;
     default:
         printf("Nope wrong choice bro\n");
