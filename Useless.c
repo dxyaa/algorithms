@@ -63,12 +63,10 @@ void stalinsort(int arr[], int arr2[], int n)
     p++;
     for (int i = 1; i < n; i++)
     {
-        printf("\np:%d", p);
         if (arr[i] > arr2[p - 1])
         {
-            arr[p] = arr[i];
+            arr2[p] = arr[i];
             p++;
-            printf("\ninside p:%d", p);
             printf("\n");
             for (int i = 0; i < p; i++)
             {
@@ -76,7 +74,7 @@ void stalinsort(int arr[], int arr2[], int n)
             }
         }
     }
-    printf("\nsorted:\n");
+    printf("\nSorted thingy:\n");
     for (int i = 0; i < p; i++)
     {
         printf("%d\t", arr2[i]);
