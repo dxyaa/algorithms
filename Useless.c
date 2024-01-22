@@ -139,7 +139,9 @@ void thanossort(int arr[], int arr2[], int n)
         // printf("\nrecursion");
     }
 }
-
+miraclesort(int arr[], int n)
+{
+}
 void main()
 {
     int n, ch;
@@ -169,7 +171,7 @@ void main()
         printf("\nAlready giving a sorted array? Nop bad game :(");
         return;
     }
-    printf("\nWhich sorting u wanna do?\n1. Bogo Sort\n2. Stalin sort \n3. Thanos sort\n : ");
+    printf("\nWhich sorting u wanna do?\n1. Bogo Sort\n2. Stalin sort \n3. Thanos sort\n4. Miracle sort\n : ");
     scanf("%d", &ch);
     switch (ch)
     {
@@ -197,6 +199,10 @@ void main()
             printf("%d\t", arr[i]);
         }
         thanossort(arr, arr2, n);
+        break;
+    case 4:
+        printf("Miracle sort(ik bro)");
+        miraclesort(arr, n);
         break;
     default:
         printf("Nope wrong choice bro\n");
