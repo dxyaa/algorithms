@@ -191,7 +191,7 @@ void main()
         {
             arr2[i] = 0;
         }
-        // printf("\n");
+        printf("\n");
         for (int i = 0; i < n; i++)
         {
             printf("%d\t", arr[i]);
