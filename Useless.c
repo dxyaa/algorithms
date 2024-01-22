@@ -142,11 +142,13 @@ void thanossort(int arr[], int arr2[], int n)
 void miraclesort(int arr[], int n, int p)
 {
     q = 1;
+
+    printf("\nChecking whether sorted...");
+    printf("\n");
     for (int i = 0; i < n; i++)
     {
         printf("%d\t", arr[i]);
     }
-    printf("\nChecking whether sorted...");
     for (int i = 0; i < n - 1; i++)
     {
         if (arr[i] > arr[i + 1])
@@ -170,10 +172,10 @@ void miraclesort(int arr[], int n, int p)
     else
     {
         printf("\nNot sorted,trying again!");
-        printf("\np: %d\n", p);
-        if (p == 10)
+        printf("\nIteration: %d\n", p);
+        if (p % 10 == 0)
         {
-            printf("\nU wanna wait for a miracle again?\t1 : Yes , 0 : No");
+            printf("\nU wanna wait for a miracle again?\t1 : Yes , 0 : No\t: ");
             scanf("%d", &q);
         }
         if (q == 1)
