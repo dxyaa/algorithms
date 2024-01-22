@@ -139,8 +139,53 @@ void thanossort(int arr[], int arr2[], int n)
         // printf("\nrecursion");
     }
 }
-miraclesort(int arr[], int n)
+void miraclesort(int arr[], int n, int p)
 {
+    q = 1;
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d\t", arr[i]);
+    }
+    printf("\nChecking whether sorted...");
+    for (int i = 0; i < n - 1; i++)
+    {
+        if (arr[i] > arr[i + 1])
+        {
+            flag = 1;
+            break;
+        }
+        else
+        {
+            flag = 0;
+        }
+    }
+    if (flag == 0)
+    {
+        printf("\nFinally sorted yey!!\n");
+        for (int i = 0; i < n; i++)
+        {
+            printf("%d\t", arr[i]);
+        }
+    }
+    else
+    {
+        printf("\nNot sorted,trying again!");
+        printf("\np: %d\n", p);
+        if (p == 10)
+        {
+            printf("\nU wanna wait for a miracle again?\t1 : Yes , 0 : No");
+            scanf("%d", &q);
+        }
+        if (q == 1)
+        {
+            miraclesort(arr, n, p + 1);
+        }
+        else
+        {
+            printf("U've stopped waiting for a miracle.");
+            return;
+        }
+    }
 }
 void main()
 {
@@ -202,7 +247,8 @@ void main()
         break;
     case 4:
         printf("Miracle sort(ik bro)");
-        miraclesort(arr, n);
+        p = 0;
+        miraclesort(arr, n, p);
         break;
     default:
         printf("Nope wrong choice bro\n");
